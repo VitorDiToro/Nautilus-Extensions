@@ -24,6 +24,19 @@
 from gi.repository import Nautilus, GObject
 import subprocess
 import os
+import locale
+
+# ---------------------------------------------------------------------------
+# i18n
+# ---------------------------------------------------------------------------
+_lang = locale.getlocale()[0] or ""
+
+if _lang.startswith("fr"):
+    T = {"menu_label": "Ouvrir avec Gedit", "tip": "Ouvrir la sélection dans {editor}"}
+elif _lang.startswith("de"):
+    T = {"menu_label": "Mit Gedit öffnen", "tip": "Auswahl in {editor} öffnen"}
+else:
+    T = {"menu_label": "Open with Gedit", "tip": "Open the selection in {editor}"}
 
 class EditFileExtension(GObject.GObject, Nautilus.MenuProvider):
     """Extension Nautilus minimaliste pour éditer plusieurs fichiers à la fois"""
@@ -55,8 +68,8 @@ class EditFileExtension(GObject.GObject, Nautilus.MenuProvider):
         # Créer l'élément de menu (Label fixe comme demandé)
         item = Nautilus.MenuItem(
             name='EditFileExtension::EditFile',
-            label=f'Ouvrir avec Gedit',
-            tip=f'Ouvrir la sélection dans {self.editor}'
+            label=T["menu_label"],
+            tip=T["tip"].format(editor=self.editor)
         )
         
         # On connecte en passant la liste complète des fichiers

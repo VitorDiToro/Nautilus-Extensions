@@ -67,6 +67,13 @@ if _lang.startswith("fr"):
         "cancel":         "Annuler",
         "ok":             "Appliquer",
         "postpend":       "-filigrané",
+        "default_text": "CONFIDENTIEL",
+        "flatten_section": "Aplatir (Flatten)",
+        "flatten_check": "Fusionner en image (recommandé pour documents sensibles)",
+        "dpi_label": "Résolution :",
+        "st_generating": "Génération du filigrane…",
+        "st_applying": "Application… (filigrane sur pages)",
+        "st_flatten": "Flatten (rasterisation)…",
         "colors": [
             ("Rouge",   "1 0 0"),
             ("Gris",    "0.5 0.5 0.5"),
@@ -97,6 +104,13 @@ else:
         "cancel":         "Cancel",
         "ok":             "Apply",
         "postpend":       "-watermarked",
+        "default_text": "CONFIDENTIAL",
+        "flatten_section": "Flatten",
+        "flatten_check": "Merge into image (recommended for sensitive documents)",
+        "dpi_label": "Resolution:",
+        "st_generating": "Generating watermark…",
+        "st_applying": "Applying… (watermark on pages)",
+        "st_flatten": "Flattening (rasterizing)…",
         "colors": [
             ("Red",   "1 0 0"),
             ("Gray",  "0.5 0.5 0.5"),
@@ -285,7 +299,7 @@ class WatermarkDialog(Adw.Window):
         outer.append(self._section_label(T["text_label"]))
         self._text_entry = Gtk.Entry()
         self._text_entry.set_placeholder_text(T["text_hint"])
-        self._text_entry.set_text("CONFIDENTIEL" if _lang.startswith("fr") else "CONFIDENTIAL")
+        self._text_entry.set_text(T["default_text"])
         outer.append(self._text_entry)
 
         # -- Taille police --
@@ -354,18 +368,18 @@ class WatermarkDialog(Adw.Window):
         outer.append(pos_box)
 
         # -- Flatten --
-        outer.append(self._section_label("Aplatir (Flatten)"))
+        outer.append(self._section_label(T["flatten_section"]))
         flatten_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=12)
 
         self._flatten_check = Gtk.CheckButton(
-            label="Fusionner en image (recommandé pour documents sensibles)")
+            label=T["flatten_check"])
         self._flatten_check.set_active(True)
         flatten_box.append(self._flatten_check)
         outer.append(flatten_box)
 
         # -- DPI (visible uniquement si flatten activé) --
         dpi_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10)
-        dpi_lbl = Gtk.Label(label="Résolution :")
+        dpi_lbl = Gtk.Label(label=T["dpi_label"])
         dpi_lbl.set_halign(Gtk.Align.START)
         self._dpi_spin = Gtk.SpinButton.new_with_range(72, 300, 25)
         self._dpi_spin.set_value(200)
@@ -534,7 +548,7 @@ class WatermarkProgressDialog(Adw.Window):
 
         # Génération du PDF de filigrane en Python pur (plus de GS ici)
         try:
-            GObject.idle_add(self._set_status, "Génération du filigrane…")
+            GObject.idle_add(self._set_status, T["st_generating"])
             # Générer le watermark avec les dimensions réelles d'au moins une
             # page pour que la répétition (mode diagonale) soit correcte en
             # paysage vs portrait.
@@ -580,7 +594,7 @@ class WatermarkProgressDialog(Adw.Window):
             # Certaines PDFs peuvent provoquer un traitement très long/bloquant
             # côté pypdf pendant writer.write(). Pour éviter que ça reste figé
             # sans retour, on lance le stamping dans un sous-process avec timeout.
-            GObject.idle_add(self._set_status, "Application… (filigrane sur pages)")
+            GObject.idle_add(self._set_status, T["st_applying"])
             GObject.idle_add(self._bar.set_fraction, 0.05)
 
             diagonal_flag = bool(s.get("diagonal", False))
@@ -660,7 +674,7 @@ with open(out, "wb") as f:
                 self._flat_tmp,
             ]
             try:
-                GObject.idle_add(self._set_status, "Flatten (rasterisation)…")
+                GObject.idle_add(self._set_status, T["st_flatten"])
                 rc_flat = subprocess.run(cmd_flat, capture_output=True, timeout=120).returncode
             except Exception as exc:
                 GObject.idle_add(self._finish_error, str(exc))

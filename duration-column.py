@@ -37,6 +37,20 @@ import gi
 gi.require_version("Nautilus", "4.0")
 from gi.repository import GObject, Nautilus
 
+import locale
+
+# ---------------------------------------------------------------------------
+# i18n
+# ---------------------------------------------------------------------------
+_lang = locale.getlocale()[0] or ""
+
+if _lang.startswith("fr"):
+    T = {"col_label": "Durée", "col_desc": "Durée des fichiers audio/vidéo"}
+elif _lang.startswith("de"):
+    T = {"col_label": "Dauer", "col_desc": "Dauer von Audio-/Videodateien"}
+else:
+    T = {"col_label": "Duration", "col_desc": "Duration of audio/video files"}
+
 # ---------------------------------------------------------------------------
 # Configuration
 # ---------------------------------------------------------------------------
@@ -173,8 +187,8 @@ class DurationColumnExtension(
         return [Nautilus.Column(
             name        = "NautilusPython::duration_column",
             attribute   = "duration",
-            label       = "Duration",
-            description = "Duration of audio/video files",
+            label       = T["col_label"],
+            description = T["col_desc"],
         )]
 
     def update_file_info(self, file_info):

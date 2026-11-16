@@ -64,6 +64,7 @@ if _lang.startswith("fr"):
         "dest_folder":  "Destination",
         "choose":       "Choisir…",
         "same_as_src":  "Même dossier que la source",
+        "n_files": "{n} fichier(s)",
     }
 elif _lang.startswith("de"):
     T = {
@@ -87,6 +88,7 @@ elif _lang.startswith("de"):
         "dest_folder":  "Ziel",
         "choose":       "Wählen…",
         "same_as_src":  "Gleicher Ordner wie Quelle",
+        "n_files": "{n} Datei(en)",
     }
 else:
     T = {
@@ -110,6 +112,7 @@ else:
         "dest_folder":  "Destination",
         "choose":       "Choose…",
         "same_as_src":  "Same folder as source",
+        "n_files": "{n} file(s)",
     }
 
 # Extensions vidéo supportées
@@ -294,8 +297,7 @@ class VideoToAudioWindow(Adw.Window):
 
         # ── Liste des fichiers ────────────────────────────────────────────────
         files_label = Gtk.Label()
-        files_label.set_markup(f"<b>{len(video_files)} fichier(s)</b>" if _lang.startswith("fr")
-                               else f"<b>{len(video_files)} file(s)</b>")
+        files_label.set_markup(f"<b>{T['n_files'].format(n=len(video_files))}</b>")
         files_label.set_halign(Gtk.Align.START)
         files_label.set_margin_start(16); files_label.set_margin_end(16)
         files_label.set_margin_top(8)

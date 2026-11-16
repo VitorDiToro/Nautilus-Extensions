@@ -58,6 +58,7 @@ if _lang.startswith("fr"):
         "no_active":    "Aucune extension active",
         "no_disabled":  "Aucune extension désactivée",
         "restart_warn": "⚠ Redémarrer Nautilus fermera toutes les fenêtres.",
+        "error": "Erreur",
     }
 else:
     T = {
@@ -75,6 +76,7 @@ else:
         "no_active":    "No active extensions",
         "no_disabled":  "No disabled extensions",
         "restart_warn": "⚠ Restarting Nautilus will close all windows.",
+        "error": "Error",
     }
 
 EXTENSIONS_DIR = os.path.expanduser("~/.local/share/nautilus-python/extensions")
@@ -306,7 +308,7 @@ class ExtManagerWindow(Adw.Window):
                 if os.path.isdir(cache):
                     shutil.rmtree(cache)
         except Exception as e:
-            dlg = Adw.MessageDialog(transient_for=self, heading="Erreur", body=str(e))
+            dlg = Adw.MessageDialog(transient_for=self, heading=T["error"], body=str(e))
             dlg.add_response("ok", "OK")
             dlg.present()
             return
