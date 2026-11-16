@@ -61,6 +61,22 @@ if _lang.startswith("fr"):
         "cancel":         "Annuler",
         "ok":             "Extraire",
     }
+# pt_BR (pt_PT and other "pt" variants fall back to pt_BR)
+elif _lang.startswith("pt"):
+    T = {
+        "menu_label":     "Extrair aqui…",
+        "menu_label_vol": "Extrair volume aqui…",
+        "title":          "Extração",
+        "extracting":     "Extraindo…",
+        "done_msg":       "Extraído para: {dst}",
+        "err_7z":         "p7zip não encontrado.\nInstale com:\nsudo apt install p7zip-full",
+        "err_failed":     "Falha na extração (código de saída {code})",
+        "err_password":   "Senha incorreta ou arquivo corrompido.",
+        "password_label": "Senha (deixe vazio se não houver):",
+        "volumes_found":  "{n} parte(s) encontrada(s) — extraindo automaticamente.",
+        "cancel":         "Cancelar",
+        "ok":             "Extrair",
+    }
 else:
     T = {
         "menu_label":     "Extract here…",

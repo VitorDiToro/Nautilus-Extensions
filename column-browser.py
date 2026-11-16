@@ -59,6 +59,15 @@ elif _lang.startswith("fr"):
         "refresh":    "Actualiser",
         "err_title":  "Erreur",
     }
+# pt_BR (pt_PT and other "pt" variants fall back to pt_BR)
+elif _lang.startswith("pt"):
+    T = {
+        "menu_label": "Abrir em visualização de colunas",
+        "title":      "Navegador de colunas",
+        "go_up":      "Pasta superior",
+        "refresh":    "Atualizar",
+        "err_title":  "Erro",
+    }
 else:
     T = {
         "menu_label": "Open in column view",

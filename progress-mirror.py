@@ -52,6 +52,9 @@ if _lang.startswith("fr"):
     T = {"title": "Opérations en cours", "cancel": "Annuler"}
 elif _lang.startswith("de"):
     T = {"title": "Laufende Vorgänge", "cancel": "Abbrechen"}
+# pt_BR (pt_PT and other "pt" variants fall back to pt_BR)
+elif _lang.startswith("pt"):
+    T = {"title": "Operações em andamento", "cancel": "Cancelar"}
 else:
     T = {"title": "File operations", "cancel": "Cancel"}
 

@@ -35,6 +35,9 @@ if _lang.startswith("fr"):
     T = {"menu_label": "Ouvrir avec Gedit", "tip": "Ouvrir la sélection dans {editor}"}
 elif _lang.startswith("de"):
     T = {"menu_label": "Mit Gedit öffnen", "tip": "Auswahl in {editor} öffnen"}
+# pt_BR (pt_PT and other "pt" variants fall back to pt_BR)
+elif _lang.startswith("pt"):
+    T = {"menu_label": "Abrir com o Gedit", "tip": "Abrir a seleção no {editor}"}
 else:
     T = {"menu_label": "Open with Gedit", "tip": "Open the selection in {editor}"}
 

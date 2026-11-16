@@ -139,6 +139,50 @@ elif _lang.startswith("de"):
         "user_dir_PICTURES":   "Bilder",
         "user_dir_VIDEOS":     "Videos",
     }
+# pt_BR (pt_PT and other "pt" variants fall back to pt_BR)
+elif _lang.startswith("pt"):
+    T = {
+        # Navigation
+        "menu_label":          "Navegar no arquivo compactado",
+        "title":               "Navegador de arquivos compactados",
+        "filter":              "Filtrar…",
+        "go_up":               "Pasta superior",
+        "refresh":             "Atualizar",
+        "home":                "Pasta pessoal",
+        # Extraction
+        "extract_all":         "Extrair tudo",
+        "extract_sel":         "Extrair seleção",
+        "col_name":            "Nome",
+        "col_size":            "Tamanho",
+        # Password
+        "pwd_title":           "Arquivo compactado protegido",
+        "pwd_body":            "Este arquivo compactado está criptografado. Digite a senha:",
+        "pwd_placeholder":     "Senha",
+        "pwd_cancel":          "Cancelar",
+        "pwd_ok":              "Abrir",
+        "pwd_wrong":           "Senha incorreta",
+        # Creator
+        "create_label":        "Criar arquivo compactado",
+        "create_title":        "Criar arquivo compactado",
+        "create_name":         "Nome do arquivo compactado",
+        "create_format":       "Formato",
+        "create_level":        "Compressão",
+        "create_pwd":          "Senha (opcional)",
+        "create_split":        "Dividir em volumes (MB, 0=não)",
+        "create_btn":          "Criar",
+        "creating":            "Criando…",
+        "create_done":         "Arquivo compactado criado",
+        "create_err":          "Erro na criação",
+        # XDG folders
+        "user_dir_DESKTOP":    "Área de trabalho",
+        "user_dir_DOWNLOAD":   "Downloads",
+        "user_dir_TEMPLATES":  "Modelos",
+        "user_dir_PUBLICSHARE":"Público",
+        "user_dir_DOCUMENTS":  "Documentos",
+        "user_dir_MUSIC":      "Música",
+        "user_dir_PICTURES":   "Imagens",
+        "user_dir_VIDEOS":     "Vídeos",
+    }
 else:
     T = {
         # Navigation

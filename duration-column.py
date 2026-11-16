@@ -48,6 +48,9 @@ if _lang.startswith("fr"):
     T = {"col_label": "Durée", "col_desc": "Durée des fichiers audio/vidéo"}
 elif _lang.startswith("de"):
     T = {"col_label": "Dauer", "col_desc": "Dauer von Audio-/Videodateien"}
+# pt_BR (pt_PT and other "pt" variants fall back to pt_BR)
+elif _lang.startswith("pt"):
+    T = {"col_label": "Duração", "col_desc": "Duração de arquivos de áudio/vídeo"}
 else:
     T = {"col_label": "Duration", "col_desc": "Duration of audio/video files"}
 

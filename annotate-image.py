@@ -92,6 +92,32 @@ elif _lang.startswith("de"):
         "zoom_fit":     "An Fenster anpassen",
         "zoom_reset":   "Originalgröße (100%)",
     }
+# pt_BR (pt_PT and other "pt" variants fall back to pt_BR)
+elif _lang.startswith("pt"):
+    T = {
+        "menu_label":   "Anotar imagem…",
+        "title":        "Anotar imagem",
+        "tool_rect":    "Retângulo",
+        "tool_ellipse": "Elipse",
+        "tool_arrow":   "Seta",
+        "tool_text":    "Texto",
+        "undo":         "Desfazer",
+        "redo":         "Refazer",
+        "save":         "Salvar",
+        "save_as":      "Salvar como…",
+        "thickness":    "Espessura",
+        "opacity":      "Opacidade",
+        "color":        "Cor",
+        "text_prompt":  "Digite o texto",
+        "text_ok":      "OK",
+        "text_cancel":  "Cancelar",
+        "saved":        "Imagem salva.",
+        "postpend":     "-anotado",
+        "zoom_in":      "Ampliar",
+        "zoom_out":     "Reduzir",
+        "zoom_fit":     "Ajustar à janela",
+        "zoom_reset":   "Tamanho real (100%)",
+    }
 else:
     T = {
         "menu_label":   "Annotate image…",

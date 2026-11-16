@@ -90,6 +90,31 @@ elif _lang.startswith("de"):
         "same_as_src":  "Gleicher Ordner wie Quelle",
         "n_files": "{n} Datei(en)",
     }
+# pt_BR (pt_PT and other "pt" variants fall back to pt_BR)
+elif _lang.startswith("pt"):
+    T = {
+        "menu_label":   "Extrair áudio",
+        "title":        "Extração de áudio",
+        "format":       "Formato",
+        "quality":      "Qualidade",
+        "quality_high": "Alta (320 kbps)",
+        "quality_med":  "Média (192 kbps)",
+        "quality_low":  "Baixa (128 kbps)",
+        "quality_copy": "Copiar fluxo (sem recodificar)",
+        "convert":      "Extrair",
+        "cancel":       "Cancelar",
+        "close":        "Fechar",
+        "processing":   "Extraindo…",
+        "file_done":    "✓ {name}",
+        "file_error":   "✗ {name}",
+        "all_done":     "Extração concluída — {ok} de {total} com sucesso.",
+        "cancelled":    "Extração cancelada.",
+        "overwrite":    "O arquivo já existe — será sobrescrito.",
+        "dest_folder":  "Destino",
+        "choose":       "Escolher…",
+        "same_as_src":  "Mesma pasta da origem",
+        "n_files":      "{n} arquivo(s)",
+    }
 else:
     T = {
         "menu_label":   "Extract audio",

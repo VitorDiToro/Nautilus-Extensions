@@ -81,6 +81,44 @@ if _lang.startswith("fr"):
             ("Noir",    "0 0 0"),
         ],
     }
+# pt_BR (pt_PT and other "pt" variants fall back to pt_BR)
+elif _lang.startswith("pt"):
+    T = {
+        "menu_label":     "Adicionar marca d'água…",
+        "dialog_title":   "Marca d'água em PDF",
+        "text_label":     "Texto da marca d'água",
+        "text_hint":      "Ex.: CONFIDENCIAL, NÃO COMPARTILHAR…",
+        "opacity_label":  "Opacidade",
+        "angle_label":    "Ângulo",
+        "size_label":     "Tamanho da fonte",
+        "color_label":    "Cor",
+        "position_label": "Posição",
+        "pos_center":     "Centro",
+        "pos_diagonal":   "Repetição diagonal",
+        "save_as":        "Salvar como…",
+        "processing":     "Aplicando marca d'água…",
+        "done_title":     "Marca d'água aplicada",
+        "done_msg":       "A marca d'água foi aplicada a {name} com sucesso.",
+        "err_gs":         "O imagemagick não está instalado. Instale-o primeiro.",
+        "err_empty":      "O texto da marca d'água não pode ficar vazio.",
+        "err_failed":     "Falha na operação (código de saída {code}).",
+        "cancel":         "Cancelar",
+        "ok":             "Aplicar",
+        "postpend":       "-marca-dagua",
+        "default_text":   "CONFIDENCIAL",
+        "flatten_section": "Achatar (Flatten)",
+        "flatten_check":  "Mesclar em imagem (recomendado para documentos sensíveis)",
+        "dpi_label":      "Resolução:",
+        "st_generating":  "Gerando a marca d'água…",
+        "st_applying":    "Aplicando… (marca d'água nas páginas)",
+        "st_flatten":     "Achatando (rasterização)…",
+        "colors": [
+            ("Vermelho", "1 0 0"),
+            ("Cinza",    "0.5 0.5 0.5"),
+            ("Azul",     "0 0 0.8"),
+            ("Preto",    "0 0 0"),
+        ],
+    }
 else:
     T = {
         "menu_label":     "Add Watermark…",

@@ -61,6 +61,25 @@ if _lang.startswith("fr"):
         "move_down":     "↓",
         "output_name":   "fusion.pdf",
     }
+# pt_BR (pt_PT and other "pt" variants fall back to pt_BR)
+elif _lang.startswith("pt"):
+    T = {
+        "menu_label":    "Mesclar PDFs…",
+        "dialog_title":  "Mesclar PDFs",
+        "order_label":   "Arraste para reordenar os arquivos:",
+        "save_as":       "Salvar PDF mesclado como…",
+        "merging":       "Mesclando…",
+        "done_title":    "Mesclagem concluída",
+        "done_msg":      "Os PDFs foram mesclados com sucesso.",
+        "err_gs":        "O ghostscript não está instalado. Instale-o primeiro.",
+        "err_single":    "Selecione pelo menos dois arquivos PDF.",
+        "err_failed":    "Falha na mesclagem (código de saída {code}).",
+        "cancel":        "Cancelar",
+        "ok":            "Mesclar",
+        "move_up":       "↑",
+        "move_down":     "↓",
+        "output_name":   "mesclado.pdf",
+    }
 else:
     T = {
         "menu_label":    "Merge PDFs…",
